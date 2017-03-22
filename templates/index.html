@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akashic Records</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/styles.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="/">Akashic Records</a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <form id="search_form" class="navbar-form navbar-right bootstrap-form-with-validation"  action="/" method="post">
+                <input class="form-control" type="text" name="search_input" placeholder="Work Title"/>
+                <button class="btn btn-primary" type="submit"><strong>Search</strong></button>
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="page-header">
+            <h3>NLP Dynamic Visualization </h3>
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <label class="radio-inline">
+                <input type="radio" name="radioGroup" id="radio1" value="option1"> Part of Speech
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="radioGroup" id="radio2" value="option2"> Subject Verb Object
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="radioGroup" id="radio3" value="option3"> Entities
+            </label>
+              <label class="radio-inline">
+              <input type="radio" name="radioGroup" id="radio3" value="option3"> Sentiment
+            </label>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Concepts</h3>
+                      </div>
+                      <div class="panel-body">
+                        <ul class="list-group">
+                            {% for concept in article.concepts %}
+                                <li class="list-group-item">{{ concept.text }}</li>
+                            {% endfor %}
+                          </ul>
+                      </div>
+                    </div>
+              </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Entities</h3>
+                      </div>
+                      <div class="panel-body">
+                        <ul class="list-group">
+                            {% for entity in article.entities %}
+                                <li class="list-group-item">{{ entity.text }}</li>
+                            {% endfor %}
+                          </ul>
+                      </div>
+                    </div>
+                </div>
+            <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Keywords</h3>
+                      </div>
+                      <div class="panel-body">
+                        <ul class="list-group">
+                            {% for keyword in article.keywords %}
+                                <li class="list-group-item">{{ keyword.text }}</li>
+                            {% endfor %}
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">{{ article.title }}</h3>
+                      </div>
+                      <div class="panel-body">
+                        {{ article.text }}
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Relations</h3>
+                      </div>
+                      <div class="panel-body">
+                        <ul class="list-group">
+                            {% for relation_data in article.relations %}
+                                <li class="list-group-item">{{ relation_data.sentence }}
+                                    <ul class="list-group">
+                                        {% for relation in relation_data.relations %}
+                                            <li class="list-group-item">
+                                                <span style="color: green">
+                                                    {{ relation.subject.text }}
+                                                </span>
+                                                <span style="color: red">
+                                                    {{ relation.action.text }}
+                                                </span>
+                                                <span style="color: blue">
+                                                    {{ relation.object.text }}
+                                                </span>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                          </ul>
+                      </div>
+                  </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+
+    </div>
+    <footer class="site-footer"></footer>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
