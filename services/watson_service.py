@@ -65,6 +65,8 @@ class WatsonService(object):
         self.historic_political_article_data = self.database['historic_political_article_data']
 
 
+
+
     def get_article_text(self, article_url):
         result = self.alchemy_language.text(url=article_url)
         stop_here = ""
@@ -111,6 +113,10 @@ class WatsonService(object):
             article_text = result.json()['text']
             stop_here = ""
         return article_text
+
+
+
+
 
 
 

@@ -11,29 +11,37 @@ app = Flask(__name__)
 app.config['MONGO_HOST'] = 'localhost'
 app.config['MONGO_PORT'] = 27017
 app.config['MONGO_DBNAME'] = 'AkashicRecords'
-from gensim.summarization.summarizer import summarize, summarize_corpus
 
 
 mongo = PyMongo(app, config_prefix='MONGO')
 
-driver = GraphDatabase.driver('bolt://localhost')
+
+
+@app.route('/trending')
+def trending_page():
+    pass
+
+
+
+
+@app.route('/sentiment')
+def sentiment_page():
+    pass
+
+
+
+
+@app.route('/article')
+def article_page():
+    pass
 
 
 
 
 
-def get_db():
-    if not hasattr(g, 'neo4j_db'):
-        g.neo4j_db = driver.session()
-    return g.neo4j_db
-
-
-def get_state_service():
-    state_service = {}
-    if not hasattr(state_service, 'state_service'):
-        state_service
-
-
+@app.route('/home')
+def home():
+    pass
 
 
 
