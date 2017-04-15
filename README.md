@@ -12,14 +12,18 @@ The vast network of individuals connected through the Internet has expanded beyo
 The term "Akashic Records" is the theoretical corpus of all human events, thoughts, and emotions that is believed to exist on a non-physical plane of existence. This concept could be seen to be forming in the ethereal data generated through internet communication and interconnection. As more data becomes available on the internet, a clearer image of the whole of humanity with its various sentiments, biases, and intents becomes evident.
 
 ## Approach
-This project utilizes the IBM Watson API which provides sentence-level sentiment analysis, tone analysis, and the deconstruction of statements into more digestible topic units. 
+This project utilizes the IBM Watson API which provides sentence-level sentiment analysis, tone analysis, and the deconstruction of statements into more digestible topic units. We look at various frames created by digital entities and compare the sentiment across a selection of events and topical figures.
 
-## Application of Emotion Detection
-    * The more imaginative, open to change, or emotionally aware a tweet seemed, the more likely it was to be liked
+## Fundamental Questions
+* Does an entity's background knowledge influence their interpretation of a frame?
+* How do entity artifacts impact the global interpretation of frames?
 
-    * The more organized, thoughtful, or thorough a tweet seemed, the more likely it was to be retweeted
+## Hypotheses of Emotion Detection
+    * The more imaginative, open to change, or emotionally aware a tweet seemed, the more likely it was to be liked.
 
-    * The angrier stressed, or impulsive a tweet seemed, the less likely it was to be retweeted
+    * The more organized, thoughtful, or thorough a tweet seemed, the more likely it was to be retweeted.
+
+    * The angrier, stressed, or impulsive a tweet seemed, the less likely it was to be retweeted.
 
 # Definitions
 
